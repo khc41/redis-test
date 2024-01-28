@@ -50,7 +50,7 @@ public class RedisConfigure {
 
     private Map<String, RedisCacheConfiguration> configureMap() {
         Map<String, RedisCacheConfiguration> cacheConfigurationMap = new HashMap<>();
-        cacheConfigurationMap.put("test", defaultConfiguration().entryTtl(Duration.ofMinutes(5)));
+        cacheConfigurationMap.put("getRedisWithCacheManager", defaultConfiguration().entryTtl(Duration.ofMinutes(5)));
         return cacheConfigurationMap;
     }
 

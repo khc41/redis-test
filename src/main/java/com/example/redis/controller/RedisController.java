@@ -17,4 +17,9 @@ public class RedisController {
     public String getRedis(@RequestBody RedisParam param) {
         return redisService.getRedis(param);
     }
+
+    @GetMapping("/manager")
+    public String getRedisWithCacheManager(@RequestBody RedisParam param) {
+        return redisService.getRedisWithCacheManager(param);
+    }
 }

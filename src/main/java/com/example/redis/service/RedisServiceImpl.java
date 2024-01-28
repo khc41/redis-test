@@ -3,6 +3,7 @@ package com.example.redis.service;
 import com.example.redis.controller.param.RedisParam;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,11 @@ public class RedisServiceImpl implements RedisService {
             result = param.getValue();
         }
         return result;
+    }
+
+    @Override
+    @Cacheable(value = "getRedisWithCacheManager", key = "#param.key", cacheManager = "redisCacheManager")
+    public String getRedisWithCacheManager(RedisParam param) {
+        return param.getValue();
     }
 }
